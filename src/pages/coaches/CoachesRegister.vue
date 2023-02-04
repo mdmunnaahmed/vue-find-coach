@@ -1,10 +1,12 @@
 <template>
-  <section>
-    <base-card>
-      <h2>Register as a Coach</h2>
-      <coach-form @save-data="saveData"></coach-form>
-    </base-card>
-  </section>
+  <div>
+    <section>
+      <base-card>
+        <h2>Register as a Coach</h2>
+        <coach-form @save-data="saveData"></coach-form>
+      </base-card>
+    </section>
+  </div>
 </template>
 
 
@@ -18,14 +20,13 @@ export default {
   methods: {
     saveData(data) {
       this.$store.dispatch('coaches/registerCoach', data);
-      this.$router.replace('/coaches')
+      this.$router.replace('/coaches');
     },
   },
   computed: {
     isCoach() {
-        return this.$store.getters['coaches/isCoach']
-    }
-  }
-
+      return this.$store.getters['coaches/isCoach'];
+    },
+  },
 };
 </script>
